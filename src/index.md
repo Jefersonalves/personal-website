@@ -3,9 +3,9 @@ toc: false
 ---
 
 <div class="hero">
-  <h1>Hello Framework</h1>
-  <h2>Welcome to your new app! Edit&nbsp;<code style="font-size: 90%;">src/index.md</code> to change this page.</h2>
-  <a href="https://observablehq.com/framework/getting-started">Get started<span style="display: inline-block; margin-left: 0.25rem;">↗︎</span></a>
+  <h1>Hi, I am Jeferson Alves</h1>
+  <h2>A Data Engineer with background in Software Engineering.</h2>
+  <a href="https://github.com/Jefersonalves">See my github<span style="display: inline-block; margin-left: 0.25rem;">↗︎</span></a>
 </div>
 
 <div class="grid grid-cols-2" style="grid-auto-rows: 504px;">
