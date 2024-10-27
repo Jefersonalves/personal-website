@@ -4,7 +4,7 @@ toc: false
 
 <div class="hero">
   <h1>Hi, I am Jeferson Alves</h1>
-  <h2>A Data Engineer with background in Software Engineering.</h2>
+  <h2>A Data Engineer with background in Software Engineering with over 5 years of experience in data and strong skills in data engineering and machine learning.</h2>
   <a href="https://github.com/Jefersonalves">See my github<span style="display: inline-block; margin-left: 0.25rem;">↗︎</span></a>
 </div>
 
