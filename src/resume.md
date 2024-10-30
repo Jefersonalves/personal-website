@@ -11,6 +11,9 @@ toc: true
 ### SCIENTIFIC INITIATION PROGRAM/UnB
 * Use of multi-agent systems for solving distributed constraint optimization problems.
 
+</br>
+</br>
+
 # Experience
 
 ### TECHNICAL DATA LEADER/VLGI
