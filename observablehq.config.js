@@ -13,7 +13,7 @@ export default {
       name: "Blog",
       open: false,
       pages: [
-        {name: "Example Report", path: "/example-report"}
+        //{name: "Example Report", path: "/example-report"}
       ]
     }
   ],
