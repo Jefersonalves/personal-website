@@ -5,6 +5,7 @@
     "clean": "rimraf src/.observablehq/cache",
     "build": "rimraf dist && observable build",
     "dev": "observable preview",
+    "observable": "observable",
     "predeploy": "npm run build",
     "deploy": "touch dist/.nojekyll && gh-pages -d dist -t true --cname jefersonalves.com"
   },
