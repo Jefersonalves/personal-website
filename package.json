@@ -7,7 +7,7 @@
     "dev": "observable preview",
     "observable": "observable",
     "predeploy": "npm run build",
-    "deploy": "touch dist/.nojekyll && gh-pages -d dist -t true --cname jefersonalves.com"
+    "deploy": "touch dist/.nojekyll && gh-pages -d dist -t true --cname jefersonalves.com --repo https://github.com/Jefersonalves/personal-website.git"
   },
   "dependencies": {
     "@observablehq/framework": "^1.13.3",
