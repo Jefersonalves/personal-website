@@ -19,7 +19,47 @@ export default {
   ],
 
   // Content to add to the head of the page, e.g. for a favicon:
-  head: '<link rel="icon" href="observable.png" type="image/png" sizes="32x32">',
+  head: `<link rel="icon" href="observable.png" type="image/png" sizes="32x32">
+  <style>
+    /* Global spacing reduction for all pages */
+    main {
+      padding-bottom: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    footer {
+      margin-top: 2rem !important;
+      padding-top: 0 !important;
+    }
+
+    footer nav,
+    footer > *,
+    .observablehq-next,
+    [role="navigation"] {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    .grid.grid-cols-3 {
+      margin-bottom: 0 !important;
+    }
+
+    main > *:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    hr {
+      margin: 1rem 0 !important;
+    }
+
+    body {
+      --main-padding-bottom: 0;
+    }
+
+    main + footer {
+      margin-top: 4rem !important;
+    }
+  </style>`,
 
   // The path to the source root.
   root: "src",
