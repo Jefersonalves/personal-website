@@ -3,6 +3,7 @@ toc: false
 ---
 
 <div class="hero">
+  <img src="./jo.png" alt="Jeferson Alves" class="avatar">
   <h1>Hi, I am Jeferson Alves</h1>
   <h2>A Data Engineer with background in Software Engineering with over 5 years of experience in data and strong skills in data engineering and machine learning.</h2>
 </div>
@@ -50,12 +51,21 @@ toc: false
   text-align: center;
 }
 
+.avatar {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 .hero h1 {
   margin: 1rem 0;
   padding: 1rem 0;
   max-width: none;
   font-size: 14vw;
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1;
   background: linear-gradient(30deg, var(--theme-foreground-focus), currentColor);
   -webkit-background-clip: text;
