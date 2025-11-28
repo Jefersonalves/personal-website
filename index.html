@@ -10,13 +10,53 @@
 <link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.dcdbf18e.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
 <link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.dcdbf18e.css">
-<link rel="modulepreload" href="./_observablehq/client.4c2d8341.js">
+<link rel="modulepreload" href="./_observablehq/client.4bd865cc.js">
 <link rel="modulepreload" href="./_observablehq/runtime.9393ab6d.js">
 <link rel="modulepreload" href="./_observablehq/stdlib.73a8ec5a.js">
 <link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
+  <style>
+    /* Global spacing reduction for all pages */
+    main {
+      padding-bottom: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    footer {
+      margin-top: 2rem !important;
+      padding-top: 0 !important;
+    }
+
+    footer nav,
+    footer > *,
+    .observablehq-next,
+    [role="navigation"] {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    .grid.grid-cols-3 {
+      margin-bottom: 0 !important;
+    }
+
+    main > *:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    hr {
+      margin: 1rem 0 !important;
+    }
+
+    body {
+      --main-padding-bottom: 0;
+    }
+
+    main + footer {
+      margin-top: 4rem !important;
+    }
+  </style>
 <script type="module">
 
-import "./_observablehq/client.4c2d8341.js";
+import "./_observablehq/client.4bd865cc.js";
 
 </script>
 </head>
@@ -30,7 +70,7 @@ import "./_observablehq/client.4c2d8341.js";
   </ol>
   <div id="observablehq-search"><input type="search" placeholder="Search"></div>
   <div id="observablehq-search-results"></div>
-  <script>{const o=document.querySelector("#observablehq-search");o.setAttribute("data-shortcut",`${/Mac|iPhone/.test(navigator.platform)?"\u2318":"Alt-"}K`);const t=o.querySelector("input"),r=()=>import("./_observablehq/search.e91c5e4f.js");t.addEventListener("focus",r,{once:!0}),t.addEventListener("keydown",r,{once:!0});const c=document.querySelector("#observablehq-sidebar-toggle");addEventListener("keydown",e=>{(e.code==="KeyK"&&e.metaKey&&!e.altKey&&!e.ctrlKey||e.key==="/"&&!e.metaKey&&!e.altKey&&!e.ctrlKey&&e.target===document.body)&&(c.checked?t.focus():(c.click(),t.focus(),c.click()),t.select(),e.preventDefault())});}</script>
+  <script>{const o=document.querySelector("#observablehq-search");o.setAttribute("data-shortcut",`${/Mac|iPhone/.test(navigator.platform)?"\u2318":"Alt-"}K`);const t=o.querySelector("input"),r=()=>import("./_observablehq/search.bca4356d.js");t.addEventListener("focus",r,{once:!0}),t.addEventListener("keydown",r,{once:!0});const c=document.querySelector("#observablehq-sidebar-toggle");addEventListener("keydown",e=>{(e.code==="KeyK"&&e.metaKey&&!e.altKey&&!e.ctrlKey||e.key==="/"&&!e.metaKey&&!e.altKey&&!e.ctrlKey&&e.target===document.body)&&(c.checked?t.focus():(c.click(),t.focus(),c.click()),t.select(),e.preventDefault())});}</script>
   <ol>
     <li class="observablehq-link"><a href="./resume">Resume</a></li>
     <li class="observablehq-link"><a href="./projects">Projects</a></li>
@@ -48,49 +88,63 @@ import "./_observablehq/client.4c2d8341.js";
 </header>
 <main id="observablehq-main" class="observablehq">
 <div class="hero">
+  <img src="./_file/jo.6bfe3207.png" alt="Jeferson Alves" class="avatar">
   <h1>Hi, I am Jeferson Alves</h1>
-  <h2>A Data Engineer with background in Software Engineering with over 5 years of experience in data and strong skills in data engineering and machine learning.</h2>
+  <h2>A Data Engineer with background in Software Engineering with over 7 years of experience in data and strong skills in Data Engineering, AI and Machine Learning.</h2>
 </div>
-<hr>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <div class="grid grid-cols-3">
   <div class="card">
     <a href="mailto:contato@jefersonalves.com" target="_blank" rel="noopener noreferrer">
       <i aria-hidden="true" class="fas fa-envelope"></i>
-      <span style="margin-left: 0.25rem;">contato@jefersonalves.com ↗︎</span>
-    </a>
-  </div>
-  <div class="card">
-    <a href="https://github.com/jefersonalves" target="_blank" rel="noopener noreferrer">
-      <i aria-hidden="true" class="fab fa-github"></i>
-      <span style="margin-left: 0.25rem;">github.com/jefersonalves ↗︎</span>
+      <span style="margin-left: 0.25rem;">contato@jefersonalves.com</span>
     </a>
   </div>
   <div class="card">
     <a href="https://www.linkedin.com/in/ferreirajeferson/" target="_blank" rel="noopener noreferrer">
       <i aria-hidden="true" class="fab fa-linkedin"></i>
-      <span style="margin-left: 0.25rem;">linkedin.com/in/ferreirajeferson ↗︎</span>
+      <span style="margin-left: 0.25rem;">linkedin.com/in/ferreirajeferson</span>
+    </a>
+  </div>
+  <div class="card">
+    <a href="https://github.com/jefersonalves" target="_blank" rel="noopener noreferrer">
+      <i aria-hidden="true" class="fab fa-github"></i>
+      <span style="margin-left: 0.25rem;">github.com/jefersonalves</span>
     </a>
   </div>
 </div>
 <style>
+
+/* Hide footer navigation on index page */
+footer {
+  display: none !important;
+}
 
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: var(--sans-serif);
-  margin: 4rem 0 8rem;
+  margin: 4rem 0 2rem;
   text-wrap: balance;
   text-align: center;
+}
+
+.avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .hero h1 {
   margin: 1rem 0;
   padding: 1rem 0;
   max-width: none;
-  font-size: 14vw;
-  font-weight: 900;
+  font-size: 12vw;
+  font-weight: 800;
   line-height: 1;
   background: linear-gradient(30deg, var(--theme-foreground-focus), currentColor);
   -webkit-background-clip: text;
@@ -110,7 +164,7 @@ import "./_observablehq/client.4c2d8341.js";
 
 @media (min-width: 640px) {
   .hero h1 {
-    font-size: 90px;
+    font-size: 72px;
   }
 }
 
