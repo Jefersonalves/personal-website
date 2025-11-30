@@ -10,9 +10,47 @@
 <link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.dcdbf18e.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
 <link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.dcdbf18e.css">
-<link rel="modulepreload" href="./_observablehq/client.4bd865cc.js">
+<link rel="modulepreload" href="./_observablehq/client.4c2d8341.js">
 <link rel="modulepreload" href="./_observablehq/runtime.9393ab6d.js">
 <link rel="modulepreload" href="./_observablehq/stdlib.73a8ec5a.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.17/d761ef9b.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/9cffc2bd.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/e780feca.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/18cbf477.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/53fe8176.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e93ca09f.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/0f2de24d.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/65eb105b.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/7ef8fb2e.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/aeb57b94.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/1d2aed74.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/5ced1d52.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/9ba9c7f3.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/4202580c.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/cdd7e898.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/b4e2ad9a.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e804d15.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/86074ef6.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/40599fb3.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/e49e792c.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/8d1e5425.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/20d3f133.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/7553081f.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/0dfd751c.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/3c90ee06.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/843b6a76.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/ba24c2e7.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/4d94e5b7.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/6d3a6726.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/9f03c579.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/07c9626f.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/b58a267d.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/004da2ac.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/b5786b3f.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/cbf6ba23.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/e08981d9.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/02d43215.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/aa00730b.js">
 <link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
   <style>
     /* Global spacing reduction for all pages */
@@ -56,7 +94,59 @@
   </style>
 <script type="module">
 
-import "./_observablehq/client.4bd865cc.js";
+import {define} from "./_observablehq/client.4c2d8341.js";
+import {registerFile} from "./_observablehq/stdlib.73a8ec5a.js";
+
+registerFile("./data/resume_timeline.csv", {"name":"./data/resume_timeline.csv","mimeType":"text/csv","path":"./_file/data/resume_timeline.7fdda9b1.csv","lastModified":1764541245039,"size":895});
+
+define({id: "a546e46d", inputs: ["FileAttachment"], outputs: ["civilizations"], body: async (FileAttachment) => {
+const civilizations = (await FileAttachment("./data/resume_timeline.csv").csv({typed: true})).map(d => ({...d, end: d.end > new Date() ? new Date() : d.end}))
+return {civilizations};
+}});
+
+define({id: "797cbc52", inputs: ["Plot","width","civilizations","display"], body: async (Plot,width,civilizations,display) => {
+display(await(
+Plot.plot({
+  width,
+  height: 600,
+  marginLeft: 0,
+  marginRight: 300,
+  axis: null,
+  color: {
+    legend: true,
+    type: "categorical",
+    range: ["#c44d58", "#53777a", "#8697a6"],
+    domain: ["experience", "education", "certification"]
+  },
+  x: {
+    axis: "top",
+    grid: true,
+    domain: [new Date(2014, 1, 1), new Date()],
+    tickFormat: (d) => `${d.getUTCFullYear()}`,
+  },
+  marks: [
+    Plot.barX(civilizations, {
+      x1: "start",
+      x2: "end",
+      y: (d) => d.company + d.role,
+      sort: {y: "-x1"},
+      fill: "category",
+      insetTop: 6,
+      insetBottom: 6
+    }),
+    Plot.text(civilizations, {
+      x: "start",
+      y: (d) => d.company + d.role,
+      text: (d) => d.company + ": " + d.role,
+      textAnchor: "start",
+      dx: 3,
+      fontSize: 15,
+    }),
+    Plot.ruleX([new Date()], {strokeDasharray: 6})
+  ]
+})
+))
+}});
 
 </script>
 </head>
@@ -70,7 +160,7 @@ import "./_observablehq/client.4bd865cc.js";
   </ol>
   <div id="observablehq-search"><input type="search" placeholder="Search"></div>
   <div id="observablehq-search-results"></div>
-  <script>{const o=document.querySelector("#observablehq-search");o.setAttribute("data-shortcut",`${/Mac|iPhone/.test(navigator.platform)?"\u2318":"Alt-"}K`);const t=o.querySelector("input"),r=()=>import("./_observablehq/search.bca4356d.js");t.addEventListener("focus",r,{once:!0}),t.addEventListener("keydown",r,{once:!0});const c=document.querySelector("#observablehq-sidebar-toggle");addEventListener("keydown",e=>{(e.code==="KeyK"&&e.metaKey&&!e.altKey&&!e.ctrlKey||e.key==="/"&&!e.metaKey&&!e.altKey&&!e.ctrlKey&&e.target===document.body)&&(c.checked?t.focus():(c.click(),t.focus(),c.click()),t.select(),e.preventDefault())});}</script>
+  <script>{const o=document.querySelector("#observablehq-search");o.setAttribute("data-shortcut",`${/Mac|iPhone/.test(navigator.platform)?"\u2318":"Alt-"}K`);const t=o.querySelector("input"),r=()=>import("./_observablehq/search.548a4963.js");t.addEventListener("focus",r,{once:!0}),t.addEventListener("keydown",r,{once:!0});const c=document.querySelector("#observablehq-sidebar-toggle");addEventListener("keydown",e=>{(e.code==="KeyK"&&e.metaKey&&!e.altKey&&!e.ctrlKey||e.key==="/"&&!e.metaKey&&!e.altKey&&!e.ctrlKey&&e.target===document.body)&&(c.checked?t.focus():(c.click(),t.focus(),c.click()),t.select(),e.preventDefault())});}</script>
   <ol>
     <li class="observablehq-link observablehq-link-active"><a href="./resume">Resume</a></li>
     <li class="observablehq-link"><a href="./projects">Projects</a></li>
@@ -91,48 +181,78 @@ import "./_observablehq/client.4bd865cc.js";
 <div>Contents</div>
 <ol>
 <li class="observablehq-secondary-link"><a href="#experience">Experience</a></li>
+<li class="observablehq-secondary-link"><a href="#education">Education</a></li>
+<li class="observablehq-secondary-link"><a href="#certifications">Certifications</a></li>
 </ol>
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<h1 id="education" tabindex="-1"><a class="observablehq-header-anchor" href="#education">Education</a></h1>
-<h3 id="software-engineering-universidade-de-brasilia-un-b" tabindex="-1"><a class="observablehq-header-anchor" href="#software-engineering-universidade-de-brasilia-un-b">SOFTWARE ENGINEERING/Universidade de Brasília (UnB)</a></h3>
-<ul>
-<li>Application of knowledge in Requirements Engineering, Software Development Methods, Object Orientation, Programming Techniques, Maintenance and Evolution, Verification and Validation, Measurement and Analysis, Architecture, and Configuration Management.</li>
-</ul>
-<h3 id="scientific-initiation-program-un-b" tabindex="-1"><a class="observablehq-header-anchor" href="#scientific-initiation-program-un-b">SCIENTIFIC INITIATION PROGRAM/UnB</a></h3>
-<ul>
-<li>Use of multi-agent systems for solving distributed constraint optimization problems.</li>
-</ul>
-<br>
-<br>
+<h1 id="resume-timeline" tabindex="-1"><a class="observablehq-header-anchor" href="#resume-timeline">Resume Timeline</a></h1>
+<div class="observablehq observablehq--block"><!--:a546e46d:--></div>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:797cbc52:--></div>
 <h1 id="experience" tabindex="-1"><a class="observablehq-header-anchor" href="#experience">Experience</a></h1>
-<h3 id="technical-data-leader-vlgi" tabindex="-1"><a class="observablehq-header-anchor" href="#technical-data-leader-vlgi">TECHNICAL DATA LEADER/VLGI</a></h3>
+<h3 id="senior-data-engineer-bitboundaire-brazil" tabindex="-1"><a class="observablehq-header-anchor" href="#senior-data-engineer-bitboundaire-brazil">SENIOR DATA ENGINEER (Bitboundaire - Brazil)</a></h3>
 <ul>
-<li>Leading a team of data professionals, responsible for talent selection, onboarding, individual monitoring, and team backlog management.</li>
-<li>Architecting and leading the implementation of a Data Lakehouse for the company, centralizing customer information, financial transactions, investments, and other applications using AWS, Nifi, Spark, and Databricks.</li>
-<li>Implementing CI/CD for deploying data tools and products developed by the team using Gitlab CI, Docker, and AWS tools.</li>
-<li>Developing and deploying a mathematical optimization system that, based on clients' financial situations, automates financial planning, making the planning process scalable.</li>
-<li>Training the team to write software tests using Pytest, increasing test coverage of applications.</li>
-<li>Creating a ranking of investment advisors to guide their actions according to the company's strategies using SQL.</li>
+<li>Implemented data quality routines</li>
+<li>Developed data pipelines to enrich data with ArgoCD, and AWS EMR (Soark)</li>
 </ul>
-<h3 id="data-engineer-vlgi" tabindex="-1"><a class="observablehq-header-anchor" href="#data-engineer-vlgi">DATA ENGINEER/VLGI</a></h3>
+<h3 id="senior-data-engineer-five-acts-brazil" tabindex="-1"><a class="observablehq-header-anchor" href="#senior-data-engineer-five-acts-brazil">SENIOR DATA ENGINEER (Five Acts - Brazil)</a></h3>
 <ul>
-<li>Creation and maintenance of ETL data pipelines from various sources.</li>
-<li>Deployment of Apache Airflow on AWS Elastic Beanstalk (EBS) to orchestrate routines using Docker.</li>
+<li>Refactored and optimized Databricks ETL pipelines for terabyte scale datasets, reducing cluster
+costs by 60% while improving reliability and scalability in a production.</li>
+<li>Optimized the Spark script that calculates model monitoring metrics by redesigning execution
+plans and restructuring input datasets, cutting processing time from 3 hours to just 30 seconds.</li>
+<li>Implemented a centralized Feature Store in Databricks by refactoring and optimizing feature
+computation pipelines, accelerating model development cycles and improving code reuse
+across teams.</li>
+<li>Collaborated with data scientists to develop a credit scoring model in Databricks that
+outperformed pre-existing models by 6% in the Kolmogorov–Smirnov score, enabling
+improvements in credit policies.</li>
 </ul>
-<h3 id="data-scientist-vlgi" tabindex="-1"><a class="observablehq-header-anchor" href="#data-scientist-vlgi">DATA SCIENTIST/VLGI</a></h3>
+<h3 id="data-engineer-consultant-delta-ai-brazil" tabindex="-1"><a class="observablehq-header-anchor" href="#data-engineer-consultant-delta-ai-brazil">DATA ENGINEER CONSULTANT (DeltaAi - Brazil)</a></h3>
 <ul>
-<li>Development of Python packages to perform variable commission calculations for advisors, simplifying the work of the finance department.</li>
-<li>Implementation of Google Analytics on the company's websites to monitor traffic and maximize the effectiveness of marketing campaigns.</li>
-<li>Creation of data reports with company KPIs to assist in decision-making.</li>
+<li>Architected and implemented a Data Lakehouse to integrate legal data sources using the
+Medallion architecture and Data Vault modeling.</li>
+<li>Designed and implemented event-driven ingestion workflows, improving data freshness and
+reducing latency for downstream analytics.</li>
+<li>Developed generative AI pipelines with Databricks, Spark, LangChain, and MLflow to automate
+large-scale extraction of structured data from legal documents, enhancing downstream
+litigation forecasting.</li>
 </ul>
-<h3 id="data-scientist-instituto-brasileiro-de-pesquisa-e-analise-de-dados-ibpad" tabindex="-1"><a class="observablehq-header-anchor" href="#data-scientist-instituto-brasileiro-de-pesquisa-e-analise-de-dados-ibpad">DATA SCIENTIST/Instituto Brasileiro de Pesquisa e Análise de Dados (IBPAD)</a></h3>
+<h3 id="senior-data-engineer-vlg-investimentos-brazil" tabindex="-1"><a class="observablehq-header-anchor" href="#senior-data-engineer-vlg-investimentos-brazil">SENIOR DATA ENGINEER (VLG Investimentos - Brazil)</a></h3>
 <ul>
-<li>Working in the research team at IBPAD, developing ETLs, analyses, and data visualizations for client companies using Google BigQuery.</li>
-<li>Developing packages for processing textual data, identifying entities, categorizing texts, and generating graphs using Scikit-learn, Pandas, Spacy, and Networkx.</li>
-<li>Developing applications for data scraping from various sources using Scrapy.</li>
-<li>Creating entity clustering models using Scikit-learn.</li>
+<li>Led the development of a Data Lakehouse leveraging Databricks and AWS with the Medallion
+Architecture, consolidating financial datasets to provide a foundation for advanced analytics
+and predictive modeling.</li>
+<li>Led the end-to-end development of an automated asset allocation tool, enabling scalable
+portfolio management for clients and reducing human workload by automating routine
+allocation decisions.</li>
+</ul>
+<h3 id="data-engineer-vlg-investimentos-brazil" tabindex="-1"><a class="observablehq-header-anchor" href="#data-engineer-vlg-investimentos-brazil">DATA ENGINEER (VLG Investimentos - Brazil)</a></h3>
+<ul>
+<li>Implemented a modern data stack on AWS leveraging Airflow, DBT, PostgreSQL and Metabase,
+automating data pipelines and delivering KPI reports that improved executive decision-making.</li>
+<li>Developed a ranking system for financial advisors based on commercial performance using
+SQL and DBT, enabling data-driven decision-making aligned with company strategies.</li>
+</ul>
+<h3 id="data-scientist-ibpad-brazil" tabindex="-1"><a class="observablehq-header-anchor" href="#data-scientist-ibpad-brazil">DATA SCIENTIST (IBPAD - Brazil)</a></h3>
+<ul>
+<li>Built NLP solutions using Scikit-learn, spaCy, and NetworkX for entity detection and clustering,
+and delivered visualizations host</li>
+</ul>
+<h1 id="education" tabindex="-1"><a class="observablehq-header-anchor" href="#education">Education</a></h1>
+<ul>
+<li>2014 - 2019: SOFTWARE ENGINEERING - BS Universidade de Brasília (UnB)</li>
+<li>2017 - 2018: UNDERGRADUATE RESEARCH PROGRAM (PROIC) UnB</li>
+<li>2009 - 2010: JUNIOR UNDERGRADUATE RESEARCH PROGRAM (PIC) Universidade Federal de Goiás (UFG)</li>
+</ul>
+<h1 id="certifications" tabindex="-1"><a class="observablehq-header-anchor" href="#certifications">Certifications</a></h1>
+<ul>
+<li>Aug 2025: DATABRICKS CERTIFIED GENERATIVE AI ENGINEER ASSOCIATE Databricks</li>
+<li>Feb 2025: DATABRICKS CERTIFIED DATA ENGINEER PROFESSIONAL Databricks</li>
+<li>Oct 2024: DATABRICKS CERTIFIED DATA ENGINEER ASSOCIATE Databricks</li>
+<li>Apr 2024: DATABRICKS FUNDAMENTALS Databricks</li>
+<li>Feb 2024: ASTRONOMER CERTIFICATION FOR APACHE AIRFLOW FUNDAMENTALS Astronomer</li>
 </ul>
 </main>
 <footer id="observablehq-footer">
