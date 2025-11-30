@@ -3,39 +3,107 @@ title: Resume
 toc: true
 ---
 
-# Education
-### SOFTWARE ENGINEERING/Universidade de Brasília (UnB)
+# Resume Timeline
 
-* Application of knowledge in Requirements Engineering, Software Development Methods, Object Orientation, Programming Techniques, Maintenance and Evolution, Verification and Validation, Measurement and Analysis, Architecture, and Configuration Management.
+```js
+const civilizations = (await FileAttachment("data/resume_timeline.csv").csv({typed: true})).map(d => ({...d, end: d.end > new Date() ? new Date() : d.end}))
+```
 
-### SCIENTIFIC INITIATION PROGRAM/UnB
-* Use of multi-agent systems for solving distributed constraint optimization problems.
-
-</br>
-</br>
+```js
+Plot.plot({
+  width,
+  height: 600,
+  marginLeft: 0,
+  marginRight: 300,
+  axis: null,
+  color: {
+    legend: true,
+    type: "categorical",
+    range: ["#c44d58", "#53777a", "#8697a6"],
+    domain: ["experience", "education", "certification"]
+  },
+  x: {
+    axis: "top",
+    grid: true,
+    domain: [new Date(2014, 1, 1), new Date()],
+    tickFormat: (d) => `${d.getUTCFullYear()}`,
+  },
+  marks: [
+    Plot.barX(civilizations, {
+      x1: "start",
+      x2: "end",
+      y: (d) => d.company + d.role,
+      sort: {y: "-x1"},
+      fill: "category",
+      insetTop: 6,
+      insetBottom: 6
+    }),
+    Plot.text(civilizations, {
+      x: "start",
+      y: (d) => d.company + d.role,
+      text: (d) => d.company + ": " + d.role,
+      textAnchor: "start",
+      dx: 3,
+      fontSize: 15,
+    }),
+    Plot.ruleX([new Date()], {strokeDasharray: 6})
+  ]
+})
+```
 
 # Experience
 
-### TECHNICAL DATA LEADER/VLGI
+### SENIOR DATA ENGINEER (Bitboundaire - Brazil)
+* Implemented data quality routines
+* Developed data pipelines to enrich data with ArgoCD, and AWS EMR (Soark)
 
-* Leading a team of data professionals, responsible for talent selection, onboarding, individual monitoring, and team backlog management. 
-* Architecting and leading the implementation of a Data Lakehouse for the company, centralizing customer information, financial transactions, investments, and other applications using AWS, Nifi, Spark, and Databricks. 
-* Implementing CI/CD for deploying data tools and products developed by the team using Gitlab CI, Docker, and AWS tools. 
-* Developing and deploying a mathematical optimization system that, based on clients' financial situations, automates financial planning, making the planning process scalable. 
-* Training the team to write software tests using Pytest, increasing test coverage of applications. 
-* Creating a ranking of investment advisors to guide their actions according to the company's strategies using SQL.
+### SENIOR DATA ENGINEER (Five Acts - Brazil)
+* Refactored and optimized Databricks ETL pipelines for terabyte scale datasets, reducing cluster
+costs by 60% while improving reliability and scalability in a production.
+* Optimized the Spark script that calculates model monitoring metrics by redesigning execution
+plans and restructuring input datasets, cutting processing time from 3 hours to just 30 seconds.
+* Implemented a centralized Feature Store in Databricks by refactoring and optimizing feature
+computation pipelines, accelerating model development cycles and improving code reuse
+across teams.
+* Collaborated with data scientists to develop a credit scoring model in Databricks that
+outperformed pre-existing models by 6% in the Kolmogorov–Smirnov score, enabling
+improvements in credit policies.
 
-### DATA ENGINEER/VLGI
-* Creation and maintenance of ETL data pipelines from various sources.
-* Deployment of Apache Airflow on AWS Elastic Beanstalk (EBS) to orchestrate routines using Docker.
+### DATA ENGINEER CONSULTANT (DeltaAi - Brazil)
+* Architected and implemented a Data Lakehouse to integrate legal data sources using the
+Medallion architecture and Data Vault modeling.
+* Designed and implemented event-driven ingestion workflows, improving data freshness and
+reducing latency for downstream analytics.
+* Developed generative AI pipelines with Databricks, Spark, LangChain, and MLflow to automate
+large-scale extraction of structured data from legal documents, enhancing downstream
+litigation forecasting.
 
-### DATA SCIENTIST/VLGI
-* Development of Python packages to perform variable commission calculations for advisors, simplifying the work of the finance department.
-* Implementation of Google Analytics on the company's websites to monitor traffic and maximize the effectiveness of marketing campaigns.
-* Creation of data reports with company KPIs to assist in decision-making.
+### SENIOR DATA ENGINEER (VLG Investimentos - Brazil)
+* Led the development of a Data Lakehouse leveraging Databricks and AWS with the Medallion
+Architecture, consolidating financial datasets to provide a foundation for advanced analytics
+and predictive modeling.
+* Led the end-to-end development of an automated asset allocation tool, enabling scalable
+portfolio management for clients and reducing human workload by automating routine
+allocation decisions.
 
-### DATA SCIENTIST/Instituto Brasileiro de Pesquisa e Análise de Dados (IBPAD)
-* Working in the research team at IBPAD, developing ETLs, analyses, and data visualizations for client companies using Google BigQuery.
-* Developing packages for processing textual data, identifying entities, categorizing texts, and generating graphs using Scikit-learn, Pandas, Spacy, and Networkx.
-* Developing applications for data scraping from various sources using Scrapy.
-* Creating entity clustering models using Scikit-learn.
+### DATA ENGINEER (VLG Investimentos - Brazil)
+* Implemented a modern data stack on AWS leveraging Airflow, DBT, PostgreSQL and Metabase,
+automating data pipelines and delivering KPI reports that improved executive decision-making.
+* Developed a ranking system for financial advisors based on commercial performance using
+SQL and DBT, enabling data-driven decision-making aligned with company strategies.
+
+### DATA SCIENTIST (IBPAD - Brazil)
+* Built NLP solutions using Scikit-learn, spaCy, and NetworkX for entity detection and clustering,
+and delivered visualizations host
+
+# Education
+* 2014 - 2019: SOFTWARE ENGINEERING - BS Universidade de Brasília (UnB)
+* 2017 - 2018: UNDERGRADUATE RESEARCH PROGRAM (PROIC) UnB
+* 2009 - 2010: JUNIOR UNDERGRADUATE RESEARCH PROGRAM (PIC) Universidade Federal de Goiás (UFG)
+
+# Certifications
+* Aug 2025: DATABRICKS CERTIFIED GENERATIVE AI ENGINEER ASSOCIATE Databricks
+* Feb 2025: DATABRICKS CERTIFIED DATA ENGINEER PROFESSIONAL Databricks
+* Oct 2024: DATABRICKS CERTIFIED DATA ENGINEER ASSOCIATE Databricks
+* Apr 2024: DATABRICKS FUNDAMENTALS Databricks
+* Feb 2024: ASTRONOMER CERTIFICATION FOR APACHE AIRFLOW FUNDAMENTALS Astronomer
