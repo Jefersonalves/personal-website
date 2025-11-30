@@ -6,7 +6,7 @@ toc: true
 # Resume Timeline
 
 ```js
-const civilizations = FileAttachment("data/resume_timeline.csv").csv({typed: true})
+const civilizations = (await FileAttachment("data/resume_timeline.csv").csv({typed: true})).map(d => ({...d, end: d.end > new Date() ? new Date() : d.end}))
 ```
 
 ```js
@@ -14,18 +14,19 @@ Plot.plot({
   width,
   height: 600,
   marginLeft: 0,
-  marginRight: 200,
-  // marginBottom: 200,
+  marginRight: 300,
   axis: null,
   color: {
-    // scheme: "BuRd",
-    scheme: "PuOr",
     legend: true,
+    type: "categorical",
+    range: ["#c44d58", "#53777a", "#8697a6"],
+    domain: ["experience", "education", "certification"]
   },
   x: {
     axis: "top",
     grid: true,
-    // tickFormat: (x) => x < 0 ? `${-x} BC` : `${x} AD`
+    domain: [new Date(2014, 1, 1), new Date()],
+    tickFormat: (d) => `${d.getUTCFullYear()}`,
   },
   marks: [
     Plot.barX(civilizations, {
@@ -34,26 +35,18 @@ Plot.plot({
       y: (d) => d.company + d.role,
       sort: {y: "-x1"},
       fill: "category",
-      // stroke: "category",
-      // strokeWidth: 2,
-      // fillOpacity: 0.5,
-      // interval: 1,
-      // inset: 0.5,
-      // dy: -10,
-      // fy: "category",
-      insetTop: 2,
-      insetBottom: 2
+      insetTop: 6,
+      insetBottom: 6
     }),
     Plot.text(civilizations, {
       x: "start",
       y: (d) => d.company + d.role,
       text: (d) => d.company + ": " + d.role,
-      // stroke: "white",
-      // strokeWidth: 0.1,
       textAnchor: "start",
       dx: 3,
-      // fy: "category",
-    })
+      fontSize: 15,
+    }),
+    Plot.ruleX([new Date()], {strokeDasharray: 6})
   ]
 })
 ```
