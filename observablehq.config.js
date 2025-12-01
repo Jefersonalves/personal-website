@@ -67,7 +67,7 @@ export default {
   // Some additional configuration options and their defaults:
   // theme: "default", // try "light", "dark", "slate", etc.
   header: '<a href="/index">Jeferson Alves</a>', // what to show in the header (HTML)
-  footer: "", // what to show in the footer (HTML)
+  footer: "Thanks for reading! If you have any questions or feedback, please let me know on LinkedIn.", // what to show in the footer (HTML)
   // sidebar: true, // whether to show the sidebar
   // toc: true, // whether to show the table of contents
   // pager: true, // whether to show previous & next links in the footer

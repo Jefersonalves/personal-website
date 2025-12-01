@@ -13,8 +13,9 @@ const civilizations = (await FileAttachment("data/resume_timeline.csv").csv({typ
 Plot.plot({
   width,
   height: 600,
-  marginLeft: 0,
-  marginRight: 300,
+  marginLeft: 100,
+  marginRight: 120,
+  // marginBottom: 200,
   axis: null,
   color: {
     legend: true,
@@ -42,9 +43,9 @@ Plot.plot({
       x: "start",
       y: (d) => d.company + d.role,
       text: (d) => d.company + ": " + d.role,
-      textAnchor: "start",
+      // textAnchor: "start",
       dx: 3,
-      fontSize: 15,
+      fontSize: 12,
     }),
     Plot.ruleX([new Date()], {strokeDasharray: 6})
   ]
