@@ -104,13 +104,14 @@ const civilizations = (await FileAttachment("./data/resume_timeline.csv").csv({t
 return {civilizations};
 }});
 
-define({id: "797cbc52", inputs: ["Plot","width","civilizations","display"], body: async (Plot,width,civilizations,display) => {
+define({id: "1bda50e0", inputs: ["Plot","width","civilizations","display"], body: async (Plot,width,civilizations,display) => {
 display(await(
 Plot.plot({
   width,
   height: 600,
-  marginLeft: 0,
-  marginRight: 300,
+  marginLeft: 100,
+  marginRight: 120,
+  // marginBottom: 200,
   axis: null,
   color: {
     legend: true,
@@ -138,9 +139,9 @@ Plot.plot({
       x: "start",
       y: (d) => d.company + d.role,
       text: (d) => d.company + ": " + d.role,
-      textAnchor: "start",
+      // textAnchor: "start",
       dx: 3,
-      fontSize: 15,
+      fontSize: 12,
     }),
     Plot.ruleX([new Date()], {strokeDasharray: 6})
   ]
@@ -189,7 +190,7 @@ Plot.plot({
 <main id="observablehq-main" class="observablehq">
 <h1 id="resume-timeline" tabindex="-1"><a class="observablehq-header-anchor" href="#resume-timeline">Resume Timeline</a></h1>
 <div class="observablehq observablehq--block"><!--:a546e46d:--></div>
-<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:797cbc52:--></div>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:1bda50e0:--></div>
 <h1 id="experience" tabindex="-1"><a class="observablehq-header-anchor" href="#experience">Experience</a></h1>
 <h3 id="senior-data-engineer-bitboundaire-brazil" tabindex="-1"><a class="observablehq-header-anchor" href="#senior-data-engineer-bitboundaire-brazil">SENIOR DATA ENGINEER (Bitboundaire - Brazil)</a></h3>
 <ul>
@@ -257,6 +258,7 @@ and delivered visualizations host</li>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="./"><span>About me</span></a><a rel="next" href="./projects"><span>Projects</span></a></nav>
+<div>Thanks for reading! If you have any questions or feedback, please let me know on LinkedIn.</div>
 </footer>
 </div>
 </body>
